@@ -7,8 +7,13 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
+  
+- task: AzureWebApp@1
+  inputs:
+    appType: 'webApp'
+    appName: 
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
 steps:
 - task: ArchiveFiles@2
   inputs:
